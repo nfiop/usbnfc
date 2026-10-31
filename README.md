@@ -1,7 +1,11 @@
-# USB NAND flash controller firmware
+# USB NAND flash controllers
 
-`usbnfc-fw` is a project that aims to provide a cross platform firmware
+`usbnfc` is a project that aims to provide a cross platform firmware
 which turns a set of popular MCUs to act as a USB NAND flash controller.
+
+It also aims to provide a set of hardware files for custom-made NAND flash
+controller boards with emphasize on diversity, low cost manufacturing and
+design's correctness.
 
 ## Goals
 
@@ -35,10 +39,10 @@ The projects goals are to:
 
 These are the planned features for now; others could be added in as well
 where needed -
+   - Support for custom-made NAND flash controller boards.
+
    - Support for platforms like the Raspberry Pi Pico board, STM32H5
      Nucleo boards, etc.
-
-   - Support for the [custom USB NAND flash controller](https://github.com/nfiop/custom-usb-nfc-adapter) project.
 
    - Support for NAND drivers - JTAG BSR, raw GPIO, RP2040 PIOs,
      platform-native flash memory controllers.
@@ -48,10 +52,19 @@ where needed -
    - Basic ECC support - mainly software Hamming & BCH, and hardware ECC
      (for Hamming and BCH) when platform allows.
 
+## USB Product ID registration
+
+Once this project is in its final stage and there's no longer a need to
+change USB descriptors or endpoints, a request will be sent to pid.codes
+repository to allocate a USB product ID.
+
 # License
 
 The project is licensed with multiple licenses -
  - MIT license for `src` directory and user-utility code.
  - GPLv2-only license for kernel module code.
  - `GPL-2.0-only OR MIT` for include headers, utests and common user code. 
+
+See the LICENSE file in `hw` directory for more details on the files in
+that directory.
 

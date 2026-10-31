@@ -1,0 +1,244 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "9fa27ae6-d44b-49c4-8854-d9cb8ddc0642")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 193.04 68.58)
+		(size 41.91 35.56)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "028acd48-e210-421b-8a5c-8fd960345146")
+		(property "Sheetname" "power2"
+			(at 193.04 67.8684 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power2.kicad_sch"
+			(at 193.04 104.7246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "programmer"
+				(path "/9fa27ae6-d44b-49c4-8854-d9cb8ddc0642"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 128.27 60.96)
+		(size 41.91 39.37)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "6746d876-e921-4472-ad69-49afbae54aa9")
+		(property "Sheetname" "power"
+			(at 128.27 60.2484 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 128.27 100.9146 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "programmer"
+				(path "/9fa27ae6-d44b-49c4-8854-d9cb8ddc0642"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 160.02 115.57)
+		(size 44.45 35.56)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "aa948cc0-1ac1-4760-897b-44b1120c0b28")
+		(property "Sheetname" "main_uc"
+			(at 160.02 114.8584 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "main_uc.kicad_sch"
+			(at 160.02 151.7146 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "programmer"
+				(path "/9fa27ae6-d44b-49c4-8854-d9cb8ddc0642"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 53.34 71.12)
+		(size 27.94 30.48)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b2c904bf-e7a1-428b-8155-16a4c9896841")
+		(property "Sheetname" "sockets"
+			(at 53.34 70.4084 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "sockets.kicad_sch"
+			(at 53.34 102.1846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "programmer"
+				(path "/9fa27ae6-d44b-49c4-8854-d9cb8ddc0642"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 92.71 115.57)
+		(size 40.64 39.37)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "b8ef5cc0-200e-412b-8942-408e3a81860b")
+		(property "Sheetname" "slave_uc"
+			(at 92.71 114.8584 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "slave_uc.kicad_sch"
+			(at 92.71 155.5246 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "programmer"
+				(path "/9fa27ae6-d44b-49c4-8854-d9cb8ddc0642"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
