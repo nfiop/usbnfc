@@ -7,12 +7,12 @@
 
 uint32_t crc32_init(void)
 {
-    return 0xFFFFFFFFu;
+	return 0xFFFFFFFFu;
 }
 
 uint32_t crc32_finalize(uint32_t crc)
 {
-    return crc ^ 0xFFFFFFFFu;
+	return crc ^ 0xFFFFFFFFu;
 }
 
 uint32_t crc32_update(uint32_t crc, const uint8_t *data, size_t len)
@@ -33,7 +33,7 @@ uint32_t crc32_update(uint32_t crc, const uint8_t *data, size_t len)
 
 uint32_t crc32_compute_direct_buf(const uint8_t *data, size_t len)
 {
-	uint32_t crc = crc32_init();	
+	uint32_t crc = crc32_init();
 	crc = crc32_update(crc, data, len);
 	return crc32_finalize(crc);
 }

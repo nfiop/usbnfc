@@ -14,8 +14,8 @@
 #include "qcbor/qcbor_encode.h"
 #include "qcbor/qcbor_spiffy_decode.h"
 
-#include "drivers/driver.h"
 #include "common/data.h"
+#include "drivers/driver.h"
 #include "platform/platform.h"
 
 /*
