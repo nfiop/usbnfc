@@ -10,6 +10,7 @@ static driver_cmd_rc_t ping_command(
     const uint8_t *arg_buf, uint8_t *ret_buf, size_t *retlen)
 
 {
+	UNUSED(arg_buf);
 	memcpy(ret_buf, "pong", sizeof("pong"));
 	*retlen = 4;
 	return DRIVER_CMD_RC_SUCCESS;

@@ -14,6 +14,10 @@
 #include "hardware/sync.h"
 #include "hardware/structs/sio.h"
 
+#include "hardware/uart.h"
+#include "pico/stdlib.h"
+#include "pico/time.h"
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -27,6 +31,11 @@ enum platform_mode determine_platform_mode(void)
     // TODO: Implement this.
     g_usb_mode = USB_MODE_MSC;
     return PLATFORM_MODE_MSC;
+}
+
+uint64_t time_now_us(void)
+{
+	return (uint64_t)time_us_32();
 }
 
 void *mem_realloc(void *ptr, size_t size)

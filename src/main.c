@@ -40,4 +40,7 @@ int app_main(void)
     }
 
     ASSERT_NOT_REACHED("Invalid boot mode");
+
+    /* FIXME: Find how to remove this, but this is to keep the compiler happy */
+    __builtin_unreachable();
 }

@@ -7,3 +7,6 @@
 [submodule "src/lib/qcbor"]
 	path = src/lib/qcbor
 	url = https://github.com/laurencelundblade/QCBOR.git
+[submodule "src/platform/stm32h753zi-nucleo/external/STM32CubeH7"]
+	path = src/platform/stm32h753zi-nucleo/external/STM32CubeH7
+	url = https://github.com/STMicroelectronics/STM32CubeH7.git

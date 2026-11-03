@@ -8,10 +8,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "hardware/uart.h"
-#include "pico/stdlib.h"
-#include "pico/time.h"
-
 #include "cobs.h"
 #include "qcbor/UsefulBuf.h"
 #include "qcbor/qcbor_decode.h"
@@ -44,7 +40,7 @@ static uint8_t rx_frame[MAX_FRAME];
 static size_t rx_len;
 static bool rx_discard_until_delimiter;
 static bool rx_have_partial_frame;
-static uint32_t rx_last_byte_us;
+static uint64_t rx_last_byte_us;
 
 static void crc32_write_le(uint8_t *dst, uint32_t crc)
 {
@@ -124,9 +120,8 @@ static void process_packet(const uint8_t *data, size_t len)
 	const uint8_t *arg;
 	UsefulBufC cmd_buf = NULLUsefulBufC;
 	char cmd[32];
-	bool ok;
 	UsefulBufC cmd_arg_buf = NULLUsefulBufC;
-	char ret_buf[RET_BUF_SIZE];
+	uint8_t ret_buf[RET_BUF_SIZE];
 	size_t ret_buf_len = RET_BUF_SIZE;
 
 	QCBORDecode_Init(
@@ -182,10 +177,10 @@ static void rx_uart_error(void)
  */
 static void rx_poll_timeout(void)
 {
-	uint32_t now = time_us_32();
+	uint64_t now = time_now_us();
 
 	if (rx_have_partial_frame &&
-	    (uint32_t)(now - rx_last_byte_us) > RX_FRAME_TIMEOUT_MS * 1000u) {
+	    (uint64_t)(now - rx_last_byte_us) > RX_FRAME_TIMEOUT_MS * 1000u) {
 
 		rx_len = 0;
 		rx_have_partial_frame = false;
@@ -252,7 +247,7 @@ static void rx_byte(uint8_t b)
 	if (rx_discard_until_delimiter)
 		return;
 
-	rx_last_byte_us = time_us_32();
+	rx_last_byte_us = time_now_us();
 	rx_have_partial_frame = true;
 
 	if (rx_len >= sizeof(rx_frame)) {

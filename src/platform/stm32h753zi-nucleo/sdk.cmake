@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR arm)
+
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+# MCU configuration
+set(MCU_FAMILY STM32H7xx)
+set(MCU_MODEL STM32H753xx)
