@@ -19,6 +19,7 @@
 #include "qcbor/qcbor_spiffy_decode.h"
 
 #include "drivers/driver.h"
+#include "common/data.h"
 #include "platform/platform.h"
 
 /*
@@ -44,28 +45,6 @@ static size_t rx_len;
 static bool rx_discard_until_delimiter;
 static bool rx_have_partial_frame;
 static uint32_t rx_last_byte_us;
-
-/* =========================================================
- * CRC-32/ISO-HDLC
- * ========================================================= */
-
-static uint32_t crc32_compute(const uint8_t *data, size_t len)
-{
-	uint32_t crc = 0xFFFFFFFFu;
-
-	for (size_t i = 0; i < len; i++) {
-		crc ^= data[i];
-
-		for (unsigned bit = 0; bit < 8; bit++) {
-			if (crc & 1u)
-				crc = (crc >> 1) ^ 0xEDB88320u;
-			else
-				crc >>= 1;
-		}
-	}
-
-	return crc ^ 0xFFFFFFFFu;
-}
 
 static void crc32_write_le(uint8_t *dst, uint32_t crc)
 {
@@ -117,7 +96,7 @@ static void send_response(
 	/* Append CRC after the CBOR payload. */
 	memcpy(raw, encoded.ptr, encoded.len);
 
-	crc = crc32_compute(raw, encoded.len);
+	crc = crc32_compute_direct_buf(raw, encoded.len);
 	crc32_write_le(raw + encoded.len, crc);
 
 	raw_len = encoded.len + CRC_SIZE;
@@ -246,7 +225,7 @@ static void rx_byte(uint8_t b)
 				    crc32_read_le(raw + payload_len);
 
 				uint32_t calculated_crc =
-				    crc32_compute(raw, payload_len);
+				    crc32_compute_direct_buf(raw, payload_len);
 
 				/*
 				 * Never pass a packet to QCBOR or execute a

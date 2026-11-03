@@ -17,6 +17,7 @@ add_executable(usbnfc_fw
     nfc.c
 
     # Common code
+    common/data.c
     common/hashmap.c
 
     # QCBOR
