@@ -41,7 +41,7 @@ These are the planned features for now; others could be added in as well
 where needed -
    - Support for custom-made NAND flash controller boards.
 
-   - Support for platforms like the Raspberry Pi Pico board, STM32H5
+   - Support for platforms like the Raspberry Pi Pico board, STM32H7xx
      Nucleo boards, etc.
 
    - Support for NAND drivers - JTAG BSR, raw GPIO, RP2040 PIOs,
