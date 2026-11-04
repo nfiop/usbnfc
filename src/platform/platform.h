@@ -29,7 +29,7 @@ void send_msg_on_debug_uart(const char *msg);
 void halt(void);
 void halt_all_cpus(void);
 
-inline void assert_with_msg(bool condition_has_met, const char *msg)
+static inline void assert_with_msg(bool condition_has_met, const char *msg)
 {
     if (!condition_has_met) {
         send_msg_on_debug_uart("Assertion failed!\n");
@@ -40,7 +40,7 @@ inline void assert_with_msg(bool condition_has_met, const char *msg)
     }
 }
 
-inline void assert_not_reached_with_msg(const char *msg)
+static inline void assert_not_reached_with_msg(const char *msg)
 {
     send_msg_on_debug_uart("Assertion not reached!\n");
     send_msg_on_debug_uart(msg);
