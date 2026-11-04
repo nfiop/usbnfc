@@ -105,7 +105,7 @@ static void send_response(
 
 	frame[cr.out_len] = 0x00;
 
-	config_uart_send_bytes(frame, cr.out_len + 1);
+	debug_and_test_mode_uart_send_bytes(frame, cr.out_len + 1);
 }
 
 /* =========================================================
@@ -265,11 +265,11 @@ int test_and_debug_main(void)
 	uint8_t ch;
 	int ret;
 
-	start_test_uart_mode(rx_poll_timeout);
+	start_debug_and_test_uart_mode(rx_poll_timeout);
 
 	while (true) {
 		rx_poll_timeout();
-		ret = config_uart_read_non_blocking(&ch, 1);
+		ret = debug_and_test_mode_uart_read_non_blocking(&ch, 1);
 		if (ret < 1) {
 			if (ret != 0) {
 				rx_uart_error();

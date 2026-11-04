@@ -52,7 +52,7 @@ bool cdc_connected(void)
 	return usb_mounted;
 }
 
-int config_uart_send_bytes(const uint8_t *data, size_t len)
+int debug_and_test_mode_uart_send_bytes(const uint8_t *data, size_t len)
 {
 	/* FIXME: Add error propagation in case of an error. */
 	int n = 0;
@@ -63,7 +63,7 @@ int config_uart_send_bytes(const uint8_t *data, size_t len)
 	return n;
 }
 
-int config_uart_read_non_blocking(uint8_t *data, size_t max_len)
+int debug_and_test_mode_uart_read_non_blocking(uint8_t *data, size_t max_len)
 {
 	/* FIXME: Add error propagation in case of FIFO overrun condition
 	 * or similar condition.
@@ -76,7 +76,7 @@ int config_uart_read_non_blocking(uint8_t *data, size_t max_len)
 	return n;
 }
 
-static void config_mode_usb_worker(void)
+static void debug_and_test_mode_usb_worker(void)
 {
 	uint8_t buf[64];
 	uint32_t room;
@@ -118,7 +118,7 @@ static void config_mode_usb_worker(void)
 	}
 }
 
-void start_test_uart_mode(void (*rx_poll_timeout)(void))
+void start_debug_and_test_uart_mode(void (*rx_poll_timeout)(void))
 {
 	queue_init(&rx_queue, sizeof(uint8_t), CDC_QUEUE_SIZE);
 	queue_init(&tx_queue, sizeof(uint8_t), CDC_QUEUE_SIZE);
@@ -127,5 +127,5 @@ void start_test_uart_mode(void (*rx_poll_timeout)(void))
 
 	config_uart_rx_poll_timeout = rx_poll_timeout;
 
-	multicore_launch_core1(config_mode_usb_worker);
+	multicore_launch_core1(debug_and_test_mode_usb_worker);
 }

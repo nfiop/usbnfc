@@ -60,9 +60,9 @@ void *mem_alloc_counted(size_t, size_t);
 void *mem_zalloc(size_t);
 void mem_free(void *);
 
-int config_uart_send_bytes(const uint8_t *data, size_t len);
-int config_uart_read_non_blocking(uint8_t *data, size_t max_len);
-void start_test_uart_mode(void (*rx_poll_timeout)(void));
+int debug_and_test_mode_uart_send_bytes(const uint8_t *data, size_t len);
+int debug_and_test_mode_uart_read_non_blocking(uint8_t *data, size_t max_len);
+void start_debug_and_test_uart_mode(void (*rx_poll_timeout)(void));
 
 /* In contrast to other modes, this mode is strictly 
  * implemented by the platform and there's little intervention
