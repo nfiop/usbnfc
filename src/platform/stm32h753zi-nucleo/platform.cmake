@@ -26,12 +26,15 @@ set(HAL_SOURCES
     ${HAL_DIR}/Src/stm32h7xx_hal_pwr_ex.c
     ${HAL_DIR}/Src/stm32h7xx_hal_flash.c
     ${HAL_DIR}/Src/stm32h7xx_hal_flash_ex.c
+    ${HAL_DIR}/Src/stm32h7xx_hal_uart.c
 )
 
 set(PLATFORM_SOURCES 
     ${HAL_SOURCES}
     ${CUBE_DIR}/Drivers/CMSIS/Device/ST/STM32H7xx/Source/Templates/system_stm32h7xx.c
     ${CMAKE_CURRENT_LIST_DIR}/startup_stm32h753xx.s
+    ${CMAKE_CURRENT_LIST_DIR}/modes/debug.c
+    ${CMAKE_CURRENT_LIST_DIR}/modes/msc.c
     ${CMAKE_CURRENT_LIST_DIR}/platform.c)
 
 # ${PICO_SDK_PATH} is declared in sdk.cmake file.

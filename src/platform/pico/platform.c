@@ -33,9 +33,9 @@ enum platform_mode determine_platform_mode(void)
 	return PLATFORM_MODE_MSC;
 }
 
-uint64_t time_now_us(void)
+uint64_t time_now_ms(void)
 {
-	return (uint64_t)time_us_32();
+	return (uint64_t)time_us_32() / 1000;
 }
 
 void *mem_realloc(void *ptr, size_t size)
@@ -152,4 +152,6 @@ int main(void)
 	enable_uart0();
 
 	app_main();
+
+	ASSERT_NOT_REACHED("main cannot exit");
 }

@@ -61,6 +61,16 @@ SECTIONS
         _etext = .;
     } > FLASH
 
+    .__driver_init_ctors :
+    {
+        . = ALIGN(4);
+        __driver_init_ctors_start = .;
+        KEEP(*(driver_init_ctors))
+        KEEP(*(driver_init_ctors.*))
+        . = ALIGN(4);
+        __driver_init_ctors_end = .;
+    }
+
     /* Read-only data */
     .rodata :
     {

@@ -28,7 +28,12 @@
 #include <stdint.h>
 #include <string.h>
 
+/* Some platforms might define this macro already... */
+#ifndef UNUSED
 #define UNUSED(__x) (void)__x
+#endif
+
+#define TODO() ASSERT_NOT_REACHED("TODO")
 
 #define TO_STRING(x) #x
 

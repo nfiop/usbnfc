@@ -52,7 +52,7 @@ static inline void assert_not_reached_with_msg(const char *msg)
 #define ASSERT(__x) assert_with_msg(__x, TO_STRING(__x))
 #define ASSERT_NOT_REACHED(__msg) assert_not_reached_with_msg(__msg)
 
-uint64_t time_now_us(void);
+uint64_t time_now_ms(void);
 
 void *mem_alloc(size_t);
 void *mem_realloc(void *, size_t);

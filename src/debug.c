@@ -40,7 +40,7 @@ static uint8_t rx_frame[MAX_FRAME];
 static size_t rx_len;
 static bool rx_discard_until_delimiter;
 static bool rx_have_partial_frame;
-static uint64_t rx_last_byte_us;
+static uint64_t rx_last_byte_ms;
 
 static void crc32_write_le(uint8_t *dst, uint32_t crc)
 {
@@ -177,10 +177,10 @@ static void rx_uart_error(void)
  */
 static void rx_poll_timeout(void)
 {
-	uint64_t now = time_now_us();
+	uint64_t now = time_now_ms();
 
 	if (rx_have_partial_frame &&
-	    (uint64_t)(now - rx_last_byte_us) > RX_FRAME_TIMEOUT_MS * 1000u) {
+	    (uint64_t)(now - rx_last_byte_ms) > RX_FRAME_TIMEOUT_MS) {
 
 		rx_len = 0;
 		rx_have_partial_frame = false;
@@ -247,7 +247,7 @@ static void rx_byte(uint8_t b)
 	if (rx_discard_until_delimiter)
 		return;
 
-	rx_last_byte_us = time_now_us();
+	rx_last_byte_ms = time_now_ms();
 	rx_have_partial_frame = true;
 
 	if (rx_len >= sizeof(rx_frame)) {

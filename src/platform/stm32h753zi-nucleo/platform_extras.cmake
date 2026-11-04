@@ -35,6 +35,9 @@ target_link_options(usbnfc_fw PRIVATE
     -Wl,--print-memory-usage
 )
 
+# Needed for QCBOR which uses float-point exception tests
+target_link_libraries(usbnfc_fw PRIVATE m)
+
 add_custom_command(TARGET usbnfc_fw POST_BUILD
     COMMAND arm-none-eabi-objcopy -O ihex
         $<TARGET_FILE:usbnfc_fw>
